@@ -1,9 +1,5 @@
 ---
 import { siteConfig } from "../config";
-
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 ---
 
 <header
@@ -11,8 +7,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   class="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block opacity-0 pointer-events-none transition-all duration-500"
 >
   <nav
-    class="px-6 py-3 rounded-full shadow-lg backdrop-blur-md bg-white/90"
-    style={`border: 1px solid ${siteConfig.accentColor}15`}
+    class="px-6 py-3 rounded-full shadow-lg backdrop-blur-md"
+    style="background-color: rgba(58,58,58,0.92); border: 1px solid rgba(255,255,255,0.08)"
   >
     <ul class="flex items-center gap-6">
       <li>
@@ -20,27 +16,26 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           Sobre Mí
         </a>
       </li>
-      {hasProjects && (
-        <li>
-          <a href="#projects" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
-            Proyectos
-          </a>
-        </li>
-      )}
-      {hasExperience && (
-        <li>
-          <a href="#experience" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
-            Experiencia
-          </a>
-        </li>
-      )}
-      {hasEducation && (
-        <li>
-          <a href="#education" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
-            Educación
-          </a>
-        </li>
-      )}
+      <li>
+        <a href="#services" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a href="#education" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
+          Formación
+        </a>
+      </li>
+      <li>
+        <a href="#testimonials" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
+          Testimonios
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="link-underline text-sm font-medium transition-colors duration-300" style={`color: ${siteConfig.accentColor}`}>
+          Contacto
+        </a>
+      </li>
     </ul>
   </nav>
 </header>

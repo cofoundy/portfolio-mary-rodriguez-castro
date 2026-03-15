@@ -1,0 +1,90 @@
+---
+import { siteConfig } from "../config";
+---
+
+<div class="w-full h-1 accent-bar-shimmer" style={`background: linear-gradient(90deg, ${siteConfig.accentColor} 0%, ${siteConfig.highlightColor} 50%, ${siteConfig.accentColor} 100%)`}></div>
+
+<section id="services" class="relative py-12 md:py-16" style={`background-color: ${siteConfig.bgDark}`}>
+  <!-- Geometric pattern overlay -->
+  <div class="absolute inset-0 geo-pattern opacity-[0.03]"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="mb-10 reveal-left">
+      <h2 class="text-3xl md:text-4xl font-bold" style={`color: ${siteConfig.accentColor}`}>Proyectos y servicios</h2>
+      <div class="w-16 h-1 mt-3 rounded-full" style={`background-color: ${siteConfig.highlightColor}`}></div>
+    </div>
+
+    <div class="space-y-6">
+      {siteConfig.services.map((service, index) => (
+        <div
+          class={`reveal stagger-${(index % 3) + 1} card-hover p-6 md:p-8 rounded-xl`}
+          style={`background-color: ${siteConfig.bgCard}; border: 1px solid rgba(255,255,255,0.08)`}
+        >
+          <h3 class="text-xl font-bold mb-4" style={`color: ${siteConfig.accentColor}`}>{service.name}</h3>
+
+          {/* Regular service with items list */}
+          {service.items && (
+            <ul class="space-y-2 mb-4">
+              {service.items.map((item) => (
+                <li class="flex items-start text-sm leading-relaxed" style={`color: ${siteConfig.textLight}`}>
+                  <span class="inline-block w-1.5 h-1.5 rounded-full mt-1.5 mr-3 flex-shrink-0" style={`background-color: ${siteConfig.highlightColor}`}></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Service with paragraph descriptions (Arte) */}
+          {service.description && Array.isArray(service.description) && (
+            <div class="space-y-4 mb-4">
+              {service.description.map((p) => (
+                <p class="text-sm leading-relaxed" style={`color: ${siteConfig.textLight}`}>{p}</p>
+              ))}
+            </div>
+          )}
+
+          {/* Results section (MYPEs) */}
+          {service.results && (
+            <div class="mt-5 pt-5 border-t" style="border-color: rgba(255,255,255,0.08)">
+              <p class="text-sm font-bold mb-3" style={`color: ${siteConfig.accentColor}`}>{service.results.title}</p>
+              <ul class="space-y-2 mb-3">
+                {service.results.items.map((item) => (
+                  <li class="flex items-start text-sm leading-relaxed" style={`color: ${siteConfig.textLight}`}>
+                    <span class="mr-2 flex-shrink-0" style={`color: ${siteConfig.accentColor}`}>&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {service.results.nested && (
+                <div class="ml-0">
+                  <p class="flex items-start text-sm leading-relaxed mb-2" style={`color: ${siteConfig.textLight}`}>
+                    <span class="mr-2 flex-shrink-0" style={`color: ${siteConfig.accentColor}`}>&#10003;</span>
+                    {service.results.nested.intro}
+                  </p>
+                  <ul class="ml-8 space-y-1.5">
+                    {service.results.nested.items.map((item) => (
+                      <li class="flex items-start text-sm leading-relaxed" style={`color: ${siteConfig.textLight}`}>
+                        <span class="inline-block w-1 h-1 rounded-full mt-2 mr-2 flex-shrink-0" style={`background-color: ${siteConfig.highlightColor}`}></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Vívela link placeholder */}
+          {service.name.includes("arte") && service.link !== undefined && (
+            <div class="mt-4 pt-4 border-t" style="border-color: rgba(255,255,255,0.08)">
+              <span class="inline-flex items-center gap-1 text-sm font-medium" style={`color: ${siteConfig.highlightColor}`}>
+                Ver proyecto "Vívela"
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
