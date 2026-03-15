@@ -2,7 +2,7 @@
 
 Portafolio profesional.
 
-**Live:** *Se actualizará después del deploy*
+**Live:** [mary-rodriguez-castro.cofoundy.dev](https://mary-rodriguez-castro.cofoundy.dev/)
 
 ## Tech Stack
 
